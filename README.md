@@ -5,7 +5,9 @@ VRの実験で頻出のリーチング課題をサクサク実装できるパッ
 
 ## Architecture
 ObjectPoolデザインパターンでリーチングターゲットを管理します。
-ObjectPoolの実装は以下を参考にしました。ありがとうございます。
+リーチング課題を実装するのにObjectPoolが絶対に必要というわけではないですが、綺麗なコードが好きなので採用しました。
+ObjectPoolの実装は以下を参考にしました。
+ありがとうございます。
 
 https://qiita.com/KeichiMizutani/items/ca46a40de02e87b3d8a8
 
