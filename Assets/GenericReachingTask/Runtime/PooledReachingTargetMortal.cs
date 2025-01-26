@@ -6,6 +6,7 @@ using UnityEngine.Pool;
 
 namespace GenericReachingTask
 {
+    [System.Obsolete("Use PooledReachingTarget instead.")]
     public class PooledReachingTargetMortal : MonoBehaviour, IPooledObject<PooledReachingTargetMortal>
     {
         private IObjectPool<PooledReachingTargetMortal> m_pool;

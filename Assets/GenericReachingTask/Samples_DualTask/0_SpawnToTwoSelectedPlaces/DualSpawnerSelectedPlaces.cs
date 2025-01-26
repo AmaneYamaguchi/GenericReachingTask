@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,8 +14,8 @@ namespace GenericReachingTask.DualTask.SpawnToRandomPlaces
             [SerializeField] private Transform m_point;
 
             /// <summary>
-            /// ‚±‚ÌSpawnPoint‚ÉƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©B
-            /// ¶¬‚³‚ê‚Ä‚¢‚é‚È‚çŠm—¦’Š‘I‚©‚ç‚Í‚¶‚­B
+            /// ã“ã®SpawnPointã«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
+            /// ç”Ÿæˆã•ã‚Œã¦ã„ã‚‹ãªã‚‰ç¢ºç‡æŠ½é¸ã‹ã‚‰ã¯ã˜ãã€‚
             /// </summary>
             public bool HasObject { get; set; } = false;
 
@@ -37,7 +37,7 @@ namespace GenericReachingTask.DualTask.SpawnToRandomPlaces
         
         private void Spawn()
         {
-            // ‚Ü‚¾ƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚Ä‚¢‚È‚¢êŠ‚ğƒ‰ƒ“ƒ_ƒ€‚É‘I‚Ô
+            // ã¾ã ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã¦ã„ãªã„å ´æ‰€ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«é¸ã¶
             var validPointsFirst = m_targetPointsFirst.Where(x => !x.HasObject).ToList();
             var indexFirst = Random.Range(0, validPointsFirst.Count());
             var validPointFirst = validPointsFirst[indexFirst];
@@ -46,7 +46,7 @@ namespace GenericReachingTask.DualTask.SpawnToRandomPlaces
             var indexSecond = Random.Range(0, validPointsSecond.Count());
             var validPointSecond = validPointsSecond[indexSecond];
 
-            // ƒIƒuƒWƒFƒNƒg‚ğæ‚èo‚µ‚Ä¶¬‚·‚é
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–ã‚Šå‡ºã—ã¦ç”Ÿæˆã™ã‚‹
             if (m_poolManager.TryGet(out m_target1) && m_target1 != null
                 && m_poolManager.TryGet(out m_target2) && m_target2 != null)
             {

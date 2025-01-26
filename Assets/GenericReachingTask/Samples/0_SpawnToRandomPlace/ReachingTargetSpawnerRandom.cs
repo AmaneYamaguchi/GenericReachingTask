@@ -1,24 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace GenericReachingTask.SpawnToRandomPlace
 {
     /// <summary>
-    /// <see cref="Transform.position"/>�𒆐S�Ƃ��闧���̂̒��Ƀ��[�`���O�^�[�Q�b�g�𐶐�����B
+    /// <see cref="Transform.position"/>を中心とする立方体の中にリーチングターゲットを生成する。
     /// </summary>
     public class ReachingTargetSpawnerRandom : MonoBehaviour
     {
         [SerializeField]
         private ReachingTargetPoolManager m_poolManager;
         /// <summary>
-        /// ���[�`���O�^�[�Q�b�g�𐶐�����͈́B
-        /// �����̂̕ӂ̒����̔����im�j�B
+        /// リーチングターゲットを生成する範囲。
+        /// 立方体の辺の長さの半分（m）。
         /// </summary>
         [SerializeField]
-        [Tooltip("���[�`���O�^�[�Q�b�g�𐶐�����͈́B\n�����̂̕ӂ̒����̔����im�j�B")]
+        [Tooltip("リーチングターゲットを生成する範囲。\n立方体の辺の長さの半分（m）。")]
         private float m_spawnRange = 1f;
         private int m_spawnCount = 0;
+        /// <summary>
+        /// リーチングターゲットが自動で消えるまでの時間（秒）。
+        /// </summary>
+        [SerializeField]
+        [Tooltip("リーチングターゲットが自動で消えるまでの時間（秒）。\n無限にしたい場合はコメントアウトしてください。")]
+        private float m_lifeTime = 10f;
 
         private void Spawn()
         {
@@ -33,6 +39,7 @@ namespace GenericReachingTask.SpawnToRandomPlace
             // get and spawn pooled object
             if (m_poolManager.TryGet(out var obj) && obj != null)
             {
+                obj.LifeTime = m_lifeTime;
                 obj.transform.position = globalPos;
                 m_spawnCount++;
                 obj.OnDeactivate.AddListener(() =>
