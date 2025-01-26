@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,14 +34,14 @@ namespace GenericReachingTask.DualTask.SpawnInOrder
                 m_index = GetIncrementedValue(m_index, m_points.Count, -m_increment);
             }
             /// <summary>
-            /// ‚ ‚é’l‚É“Á’è‚Ì’l‚ğ‘«‚µ‚±‚ñ‚¾ŒãA”ÍˆÍ“à‚Ì”’l‚Éû‚ß‚é
+            /// ã‚ã‚‹å€¤ã«ç‰¹å®šã®å€¤ã‚’è¶³ã—ã“ã‚“ã å¾Œã€ç¯„å›²å†…ã®æ•°å€¤ã«åã‚ã‚‹
             /// </summary>
             /// <param name="inc"></param>
             private int GetIncrementedValue(int input, int length, int inc = 1)
             {
                 input += inc;
 
-                // ”ÍˆÍ“à‚Éû‚ß‚é
+                // ç¯„å›²å†…ã«åã‚ã‚‹
                 input = (int)Mathf.Repeat(input, length);
 
                 return input;
@@ -63,7 +63,7 @@ namespace GenericReachingTask.DualTask.SpawnInOrder
             Vector3 pos1 = m_spawnPointsFirst.GetPoint().position;
             Vector3 pos2 = m_spawnPointsSecond.GetPoint().position;
 
-            // ƒIƒuƒWƒFƒNƒg‚ğæ‚èo‚µ‚Ä¶¬‚·‚é
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–ã‚Šå‡ºã—ã¦ç”Ÿæˆã™ã‚‹
             if (m_poolManager.TryGet(out m_target1) && m_target1 != null
                 && m_poolManager.TryGet(out m_target2) && m_target2 != null)
             {
